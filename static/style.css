@@ -1,0 +1,170 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #263044;
+}
+
+nav {
+    background: #242b45;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
+    width: 86%;
+    max-width: 1100px;
+    margin: 35px auto;
+    min-height: 75vh;
+}
+
+.hero {
+    background: linear-gradient(120deg, #4659a8, #8b5ca8);
+    color: white;
+    padding: 55px 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 35px;
+}
+
+.btn {
+    display: inline-block;
+    background: #5268d9;
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    margin: 10px 0;
+    font: inherit;
+}
+
+.post-card, .form-box, .comment {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 3px 15px #0000000d;
+}
+
+.post-card a {
+    color: #5268d9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-box {
+    max-width: 450px;
+    margin: 40px auto;
+}
+
+.form-box.wide {
+    max-width: 750px;
+}
+
+.form-box .btn {
+    width: 100%;
+}
+
+.muted {
+    color: #8991a1;
+    font-size: 14px;
+}
+
+.article-content {
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+
+.delete-btn {
+    background: #d94343;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.flash {
+    background: #e2f5e8;
+    padding: 12px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background: #242b45;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media(max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .container {
+        width: 92%;
+    }
+}
+.post-card a.btn {
+    color: white;
+    background: #5268d9;
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.post-card form {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.post-card form button {
+    margin-top: 10px;
+}

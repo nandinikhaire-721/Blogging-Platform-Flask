@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BlogSpace{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a class="logo" href="/">BlogSpace ✍️</a>
+        <div>
+            <a href="/">Home</a>
+            {% if current_user.is_authenticated %}
+                <a href="/create">Write Blog</a>
+                <a href="/logout">Logout</a>
+                <span>Hello, {{ current_user.username }}</span>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>© 2026 BlogSpace | Built with Python Flask</footer>
+</body>
+</html>

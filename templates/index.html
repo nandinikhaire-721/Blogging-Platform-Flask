@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home - BlogSpace{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>Share Your Stories. Inspire The World.</h1>
+    <p>Welcome to BlogSpace, your creative blogging community.</p>
+    <a class="btn" href="{{ url_for('create_post') }}">Start Writing</a>
+</section>
+
+<!-- SEARCH FORM -->
+<form class="search" method="GET" action="{{ url_for('index') }}">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search blogs..."
+        value="{{ query }}"
+    >
+    <button type="submit" class="btn">Search</button>
+    
+    {% if query %}
+        <a href="{{ url_for('index') }}">Clear Search</a>
+    {% endif %}
+</form>
+
+<h2>
+    {% if query %}
+        Search Results for "{{ query }}"
+    {% else %}
+        Latest Blog Posts
+    {% endif %}
+</h2>
+
+<!-- DISPLAY MATCHING POSTS ONLY -->
+<div class="posts">
+
+    {% for post in posts %}
+
+        <article class="post-card">
+
+            <h2>{{ post.title }}</h2>
+
+            <p class="muted">
+                By {{ post.author.username }} |
+                {{ post.date.strftime('%d %b %Y') }}
+            </p>
+
+            <p>{{ post.content[:180] }}...</p>
+
+            <a href="{{ url_for('view_post', post_id=post.id) }}">
+                Read More →
+            </a>
+
+        </article>
+
+    {% else %}
+
+        <p>No matching blog posts found.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
